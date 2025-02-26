@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class DestroyObstacles : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other) //Este se añade a un box collider con trigger
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Obstacle")) // Si el objeto que entra en contacto tiene el tag "Obstacle"
+        {
+            Destroy(other.gameObject); // Destruye el objeto (cubo)
+        }
     }
 }

@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
-public class SceneRestart : MonoBehaviour
+public class RestartScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void OnCollisionEnter(Collision collision) 
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Obstacle")) // Verifica si el objeto con el que chocamos tiene el tag "Obstacle"
+        {
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Se reinicia la escena cuando haga contacto con el jugador.
+        }
     }
 }
